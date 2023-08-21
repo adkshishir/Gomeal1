@@ -9,7 +9,9 @@ const page = () => {
   const [light, setLight] = useState(JSON.parse(localStorage.getItem('dark')));
   const LightProvider = createContext();
   useEffect(async () => {
+    localStorage.setItem('dark', false);
     setLight(JSON.parse(localStorage.getItem('dark')));
+
     console.log(JSON.parse(localStorage.getItem('dark')));
   }, [JSON.parse(localStorage.getItem('dark'))]);
   return (
