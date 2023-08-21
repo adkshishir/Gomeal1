@@ -15,6 +15,7 @@ const Offers = ({ offer, price, title, image }) => {
       price: price,
       title: title,
       image: image,
+      like: true,
     };
     setLike(!like);
     // if not like add to the like and If already exist in like then remove it from the like

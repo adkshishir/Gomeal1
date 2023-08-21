@@ -25,7 +25,7 @@ const page = () => {
               price={5.9}
               title={item.title}
               image={item.image}
-              like={true}
+              like={item.like}
             />
           ))}
       </aside>
