@@ -3,10 +3,10 @@ import Btn from './Btn';
 const Banner = () => {
   // #F8B602, #F0C868, #F0C86800
   return (
-    <div className='w-[252px] h-[202px] shrink-0 bg-[#ffc31e] bg-gradient-to-tl from-[#F0C86800] to-[# #F8B602] relative overflow-hidden p-8 rounded-xl mx-auto mt-[166px]'>
+    <div className='w-[252px] h-[202px] shrink-0 bg-[#ffc31e] bg-gradient-to-tl from-[#F0C86800] to-[# #F8B602] relative overflow-hidden p-8 rounded-xl mx-auto mt-10 md:hidden lg:block'>
       <img
         src='/images/maskgroup.jpg'
-        className='w-[170px] h=[170px] absolute  rounded-full translate-y-[50%] translate-x-[75%] object-cover opacity-40'
+        className='w-[170px] h-[170px] absolute  rounded-full translate-y-[50%] translate-x-[75%] object-cover opacity-40'
         alt='maskgroup'
       />
       <div className='absolute top-6 left-[85%]'>

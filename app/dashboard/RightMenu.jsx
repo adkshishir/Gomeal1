@@ -1,18 +1,29 @@
-import React from 'react';
+'use client';
+import React, { createContext, useContext, useState } from 'react';
 import BlankBox from '../component/BlankBox';
 import YellowDot from '../component/YellowDot';
 import Btn from '../component/Btn';
 import MenuBox from '../component/MenuBox';
 import Price from '../component/Price';
-
+const LightProvider = createContext();
 const RightMenu = () => {
+  const [light, setLight] = useState(JSON.parse(localStorage.getItem('dark')));
+  const handleDark = () => {
+    localStorage.setItem('dark', !light);
+
+    window.location.reload(true);
+  };
+
   return (
-    <div className='w-[455px] h-[100vh] shrink-0 float-right '>
-      <div className='flex justify-between w-[375px]  mx-auto  items-center'>
+    <div
+      className={`w-fit text-black bg-white px-2 h-fit hidden lg:block sticky top-[-270px] shrink-0 float-right ${
+        !JSON.parse(localStorage.getItem('dark')) && ' invert text-[#eaeaea9f]'
+      } `}>
+      <div className='flex justify-between w-fit  mx-auto  items-center'>
         <div className='flex items-center my-[56px]'>
           <div className=' relative mx-4 '>
-            <span className='absolute text-[#f8b602] text-[40px] left-full -top-full'>
-              .
+            <span className={` absolute ${''} text-[40px] left-full -top-full`}>
+              <YellowDot />
             </span>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -47,7 +58,7 @@ const RightMenu = () => {
               />
             </svg>
           </div>
-          <div>
+          <div onClick={handleDark}>
             {' '}
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -64,11 +75,11 @@ const RightMenu = () => {
         </div>
         <BlankBox size={'small'} />
       </div>
-      <div className=' w-[375px] mx-auto font-[Poppins]'>
+      <div className='  mx-auto font-[Poppins]'>
         <div className='font-[700] text-[24px] '>Your Address</div>
         <div className='flex font-[700] text-[18px] justify-between '>
           <div className='flex'>
-            <div className='mr-2'>
+            <div className='mr-2 bold'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 width='24'
@@ -92,14 +103,14 @@ const RightMenu = () => {
           Your default address for delivery
         </p>
 
-        <div className='w-[50%] justify-between flex'>
+        <div className='gap-4 flex'>
           <Btn
             value={'Add Details'}
-            className={`px-2 py-1 text-[#2E2E2E] font-[400] text-[14px] border border-[#2E2E2E] rounded-lg`}
+            className={`px-2 py-1 w-fit font-[400] text-[14px] border border-[#2E2E2E] rounded-lg`}
           />
           <Btn
             value={'Add Note'}
-            className={`px-2 py-1 text-[#2E2E2E] font-[400] text-[14px] border border-[#2E2E2E] rounded-lg`}
+            className={`px-2 py-1 w-fit font-[400] text-[14px] border border-[#2E2E2E] rounded-lg`}
           />
         </div>
         <div className='text-[24px] font-[700] my-6'>Order Menu</div>
@@ -109,7 +120,7 @@ const RightMenu = () => {
         <br />
         <br />
         <br />
-        <hr width={375} color='#DBDBDB' />
+        <hr color='#DBDBDB' />
         <div className='justify-between flex my-[35px]'>
           <div className='text-[14px] font-[500] leading-[21px] text-[#A098AE]'>
             {' '}
@@ -127,7 +138,7 @@ const RightMenu = () => {
         </div>
         <Btn
           className={
-            'w-full h-[64px] rounded-2xl border text-[#2E2E2E] border-[#F8B602]  flex items-center my-6 gap-x-[24px] justify-center bg-[#F5F5F5]'
+            'px-2 h-[64px] rounded-2xl border ${light?"text-[#2E2E2E]":"text-white"} border-[#F8B602]  flex items-center my-6 gap-x-[24px] justify-center bg-[#F5F5F5]'
           }
           value={
             <>
@@ -166,7 +177,7 @@ const RightMenu = () => {
         />
         <Btn
           value={'Checkout'}
-          className={`bg-[#F8B602] text-white gap-[10px p-[16px] rounded-2xl w-[373px] h-[64px] my-6`}
+          className={`bg-[#F8B602] w-full text-white gap-[10px p-[16px] rounded-2xl  h-[64px] my-6`}
         />
       </div>
     </div>

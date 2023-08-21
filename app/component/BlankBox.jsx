@@ -1,15 +1,16 @@
 import React from 'react';
 
-const BlankBox = ({ size }) => {
+const BlankBox = ({ size,image }) => {
   return (
-    <div
+    <img
+    src={image}
       className={`${
         size == 'small'
-          ? 'w-[60px] h-[60px]'
+          ? 'w-[50px] h-[50px]'
           : size === 'medium'
-          ? 'w-[80px] h-[80px]'
-          : 'w-[180px] h-[180px]'
-      } rounded-2xl bg-[#C4C4C4]`}></div>
+          ? 'w-[60px] h-[60px]'
+          : 'w-[160px] h-[160px]'
+      } rounded-2xl bg-[#C4C4C4] object-cover `}/>
   );
 };
 
