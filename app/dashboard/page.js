@@ -1,8 +1,8 @@
 'use client';
 import React, { createContext, useEffect, useState } from 'react';
-import SideMenu from './dashboard/SideMenu';
-import Main from './dashboard/Main';
-import RightMenu from './dashboard/RightMenu';
+import SideMenu from './SideMenu';
+import Main from './Main';
+import RightMenu from './RightMenu';
 import Link from 'next/link';
 
 const page = () => {
@@ -10,7 +10,7 @@ const page = () => {
 
   useEffect(() => {
     const mode = localStorage.getItem('dark');
-    setLight(JSON.parse(mode))
+    setLight(JSON.parse(mode));
   }, []);
   return (
     <>

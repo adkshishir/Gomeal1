@@ -5,19 +5,16 @@ import YellowDot from '../component/YellowDot';
 import Btn from '../component/Btn';
 import MenuBox from '../component/MenuBox';
 import Price from '../component/Price';
-const LightProvider = createContext();
-const RightMenu = () => {
-  const [light, setLight] = useState(JSON.parse(localStorage.getItem('dark')));
+const RightMenu = ({ light, setLight }) => {
   const handleDark = () => {
     localStorage.setItem('dark', !light);
-
-    window.location.reload(true);
+    setLight(!light);
   };
 
   return (
     <div
       className={`w-fit text-black bg-white px-2 h-fit hidden lg:block sticky top-[-270px] shrink-0 float-right ${
-        !JSON.parse(localStorage.getItem('dark')) && ' invert text-[#eaeaea9f]'
+        !light && ' invert text-[#eaeaea9f]'
       } `}>
       <div className='flex justify-between w-fit  mx-auto  items-center'>
         <div className='flex items-center my-[56px]'>

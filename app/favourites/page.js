@@ -6,18 +6,21 @@ import Offers from '../component/Offers';
 
 const page = () => {
   const [likeData, setLikeData] = useState([]);
-  const dark = JSON.parse(localStorage.getItem('dark'));
+  // const dark = JSON.parse(localStorage.getItem('dark'));
+  const [dark, setDark] = useState();
   useEffect(() => {
-    const like = JSON.parse(localStorage.getItem('like'));
-    setLikeData(like);
+    const darktemp = localStorage.getItem('dark');
+    darktemp && setDark(JSON.parse(darktemp));
+    const like = localStorage.getItem('like');
+    like && setLikeData(JSON.parse(like));
   }, []);
   return (
-    <div className={`  w-[100vw]  h-fit flex  bg-[#F5F5F5]`}>
-      <SideMenu />
+    <div className={` w-[100vw] flex bg-[#F5F5F5]`}>
+      <SideMenu light={dark} />
       <aside
         className={`flex ${
           !dark && 'invert bg-[#F5F5F5]'
-        } flex-wrap justify-around w-full col-span-2`}>
+        } flex-wrap justify-around w-full h-fit  `}>
         {likeData &&
           likeData.map((item, index) => (
             <Offers
@@ -25,11 +28,11 @@ const page = () => {
               price={5.9}
               title={item.title}
               image={item.image}
-              like={item.like}
+              liked={item.like}
             />
           ))}
       </aside>
-      <RightMenu />
+      <RightMenu light={dark} setLight={setDark} />
     </div>
   );
 };

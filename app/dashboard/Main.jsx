@@ -7,8 +7,8 @@ import icons from '../assets/icons';
 import H2 from '../component/H2';
 import Offers from '../component/Offers';
 import Link from 'next/link';
-const Main = () => {
-  const [light, setLight] = useState(JSON.parse(localStorage.getItem('dark')));
+const Main = ({ light }) => {
+  // const [light, setLight] = useState();
   const [foods, setFoods] = useState([]);
   const url =
     'https://edamam-food-and-grocery-database.p.rapidapi.com/api/food-database/v2/parser?nutrition-type=cooking&category%5B0%5D=generic-foods&health%5B0%5D=alcohol-free';
@@ -25,17 +25,14 @@ const Main = () => {
       const data = await response.json();
       localStorage.setItem('data', JSON.stringify(data));
     } catch (error) {
-      // console.error(error);
+      console.error(error);
     }
   };
   useEffect(() => {
     let raw = JSON.parse(localStorage.getItem('data'));
-
     !raw && fetchData();
-    const likeItems = JSON.parse(localStorage.getItem('like'));
-    !likeItems && localStorage.setItem('like', JSON.stringify([]));
     raw = JSON.parse(localStorage.getItem('data'));
-    setFoods(raw.hints);
+    raw && setFoods(raw.hints);
   }, []);
   return (
     <main
@@ -93,10 +90,12 @@ const Main = () => {
             <Catergory icon={icons.Seafood} title={'Seafood'} />
           </aside>
         </section>
-        {/* <section>
-          <div>
+        <section>
+          <div className='flex justify-between px-4 items-center'>
             <H2 value={'Offers'} />
-            <Link href={'/offers'}>see all {'>'}</Link>
+            <Link href={'/offers'} className='text-[#F8B602]'>
+              see all {'>'}
+            </Link>
           </div>
           <aside className='lg:flex w-full'>
             {console.log(foods)}
@@ -123,9 +122,11 @@ const Main = () => {
           </aside>
         </section>
         <section>
-          <div>
+          <div className=' flex justify-between px-4 items-center'>
             <H2 value={'Go meal Special'} />
-            <Link href={'/offers'}>see all {'>'}</Link>
+            <Link href={'/offers'} className='text-[#F8B602]'>
+              see all {'>'}
+            </Link>
           </div>
           <aside className='lg:flex w-full '>
             {console.log(foods)}
@@ -152,9 +153,11 @@ const Main = () => {
           </aside>
         </section>
         <section>
-          <div>
+          <div className='flex justify-between px-4 items-center'>
             <H2 value={'Burgers'} />
-            <Link href={'/offers'}>see all {'>'}</Link>
+            <Link href={'/offers'} className='text-[#F8B602]'>
+              see all {'>'}
+            </Link>
           </div>
           <aside className='lg:flex w-full'>
             {console.log(foods)}
@@ -179,7 +182,7 @@ const Main = () => {
                 )
               )}
           </aside>
-        </section> */}
+        </section>
         <section>
           <H2 value={'GoMeal Special'} />
 

@@ -13,16 +13,16 @@ const NavItems = ({ value, icons, href, handleClick, index, active }) => {
   };
   return (
     <li
-      // onClick={onClick}
+      onClick={onClick}
       className={` ${
         active ? 'bg-[#f8b602] text-white' : ' text-[#A098AE]'
       } w-[160px]  md:w-[64px] active:bg-[#f8b602] lg:w-[200px]  h-[64px] py-[16px] mx-auto rounded-[16px] items-center gap-[24px] shadow-[0px 20px 50px 0px rgba(46,46,46,0.05)]`}>
-      <a
+      <Link
         href={href}
         className={`text-[18px]  font-[500] ${poppins.className} mx-auto flex items-center  `}>
         <div className='w-fit shrink-0'>{icons}</div>
         <span className='flex md:hidden lg:flex text-start'>{value}</span>
-      </a>
+      </Link>
     </li>
   );
 };
