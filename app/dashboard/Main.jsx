@@ -97,7 +97,7 @@ const Main = ({ light }) => {
               see all {'>'}
             </Link>
           </div>
-          <aside className='lg:flex w-full'>
+          <aside className='grid mx-auto justify-center lg:flex w-full'>
             {console.log(foods)}
             {foods !== undefined &&
               foods.map((item, index) =>
@@ -128,7 +128,7 @@ const Main = ({ light }) => {
               see all {'>'}
             </Link>
           </div>
-          <aside className='lg:flex w-full '>
+          <aside className='grid mx-auto justify-center lg:flex w-full '>
             {console.log(foods)}
             {foods !== undefined &&
               foods.map((item, index) =>
@@ -159,7 +159,7 @@ const Main = ({ light }) => {
               see all {'>'}
             </Link>
           </div>
-          <aside className='lg:flex w-full'>
+          <aside className='grid mx-auto justify-center lg:flex w-full'>
             {console.log(foods)}
             {foods !== undefined &&
               foods.map((item, index) =>
@@ -183,7 +183,7 @@ const Main = ({ light }) => {
               )}
           </aside>
         </section>
-        <section>
+        {/* <section>
           <H2 value={'GoMeal Special'} />
 
           <aside className='grid mx-auto justify-center lg:flex w-full '>
@@ -254,7 +254,7 @@ const Main = ({ light }) => {
           <div className='w-full bg-[#E8E8E8] rounded-full h-[10px] mt-2 mb-3'>
             <div className='w-1/3 h-[10px] bg-[#C4C4C4] rounded-full'></div>
           </div>
-        </section>
+        </section> */}
       </div>
     </main>
   );
