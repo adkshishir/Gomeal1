@@ -91,7 +91,7 @@ const Main = ({ light }) => {
           </aside>
         </section>
         <section>
-          <div className='flex justify-between px-4 items-center'>
+          <div className='lg:flex justify-between px-4 items-center'>
             <H2 value={'Offers'} />
             <Link href={'/offers'} className='text-[#F8B602]'>
               see all {'>'}
@@ -122,7 +122,7 @@ const Main = ({ light }) => {
           </aside>
         </section>
         <section>
-          <div className=' flex justify-between px-4 items-center'>
+          <div className=' lg:flex justify-between px-4 items-center'>
             <H2 value={'Go meal Special'} />
             <Link href={'/offers'} className='text-[#F8B602]'>
               see all {'>'}
@@ -153,7 +153,7 @@ const Main = ({ light }) => {
           </aside>
         </section>
         <section>
-          <div className='flex justify-between px-4 items-center'>
+          <div className='lg:flex justify-between px-4 items-center'>
             <H2 value={'Burgers'} />
             <Link href={'/offers'} className='text-[#F8B602]'>
               see all {'>'}

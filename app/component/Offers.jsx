@@ -53,7 +53,7 @@ const Offers = ({ offer, price, title, image, liked }) => {
       <div className={` absolute right-6 top-6`} onClick={LikeItems}>
         {like ? icons.like : icons.notLike}
       </div>
-      <div className={`${!dark && 'invert'} mx-auto mb-2 `}>
+      <div className={`${dark && 'invert'} mx-auto mb-2 `}>
         <BlankBox image={image} />
       </div>
       <div className='flex justify-between'>
